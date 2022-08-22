@@ -1,19 +1,25 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import './CaseList.css'
+import MyVerticallyCenteredModal from './Modal.js'
+import { useState }  from 'react';
 
 function BasicExample() {
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div className='caselist'>
     <Card style={{ width: '18rem' }}>
       <Card.Img variant="top" src="holder.js/100px180" />
       <Card.Body>
-        <Card.Title>Card Title</Card.Title>
+        <Card.Title>UGC Case 1</Card.Title>
         <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
+          It all started on the.... 
         </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
+        <Button onClick={() => setModalShow(true)} variant="primary">View Full Case</Button>
+        <MyVerticallyCenteredModal
+                          show={modalShow}
+                          onHide={() => setModalShow(false)}
+                        />
       </Card.Body>
     </Card>
     </div>
